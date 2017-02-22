@@ -1,26 +1,22 @@
 <?php 
-
-
-
-
-
-
-
-
-
 function ispost(){
 	return (isset($_SERVER['REQUEST_METHOD'])&&$_SERVER['REQUEST_METHOD']==='POST');
 }
-$db=new mysqli('127.0.0.1','root','root','test',3306);
-if ($db->connect_error) {
-	die();
-}
+
+
 if (ispost()) {
-	
-	
+
 	$user=$_POST['user'];
 	$pass=$_POST['pass'];
-	$conf="'SELECT * FROM user WHERE user='$user' AND pass='$pass'";
+	$conf="SELECT * FROM user WHERE user=$user AND pass=$pass";
+	$db=mysql_connect('127.0.0.1','root','root','boke');
+	
+	$result=mysql_query($conf);
+	$row=mysql_fetch_row($result);
+	var_dump($row);
+	if ($db->connect_error) {
+	die();
+	}
 	
 
 	if ($a) {
