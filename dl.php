@@ -1,12 +1,29 @@
 <?php 
-$user='123456';
-$pass='123456';
+
+
+
+
+
+
+
+
+
 function ispost(){
 	return (isset($_SERVER['REQUEST_METHOD'])&&$_SERVER['REQUEST_METHOD']==='POST');
 }
-
+$db=new mysqli('127.0.0.1','root','root','test',3306);
+if ($db->connect_error) {
+	die();
+}
 if (ispost()) {
-	if ($user===$_POST['user']&&$pass===$_POST['pass']) {
+	
+	
+	$user=$_POST['user'];
+	$pass=$_POST['pass'];
+	$conf="'SELECT * FROM user WHERE user='$user' AND pass='$pass'";
+	
+
+	if ($a) {
 		echo '登录成功';
 	}else{
 		echo '登录失败';
@@ -42,6 +59,7 @@ if (ispost()) {
 		<p><input type="password" name="pass"></p>
 		
 		<p><input type="submit" name="submit"></p>
+		<P><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'./capcha.php'?>" onclick=this.src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'./capcha.php'?>"+'/'+Math.random()></P>
 		</form>
 	</div>	
 </body>
