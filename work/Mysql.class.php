@@ -20,7 +20,7 @@ class Mysql{
 	private $character='';
 	private $conn='';
 	private static $mysql;
-	private function __construct($conf){
+	private function ___construct($conf){
 		//判断接受的数据是否合法
 		$this->host=isset($conf['host'])?$conf['host']:'127.0.0.1';
 		$this->user=isset($conf['user'])?$conf['user']:'root';
@@ -33,7 +33,7 @@ class Mysql{
 	}
 	public static function init($conf){
 		if (!isset(self::$mysql)) {
-			self::$mysql= new self($conf) ;
+			return self::$mysql= new self($conf) ;
 			
 		}
 

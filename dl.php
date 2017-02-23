@@ -1,29 +1,56 @@
 <?php 
+session_start();
 function ispost(){
 	return (isset($_SERVER['REQUEST_METHOD'])&&$_SERVER['REQUEST_METHOD']==='POST');
 }
-
-
-if (ispost()) {
-
-	$user=$_POST['user'];
-	$pass=$_POST['pass'];
-	$conf="SELECT * FROM user WHERE user=$user AND pass=$pass";
-	$db=mysql_connect('127.0.0.1','root','root','boke');
+if (ispost()||$_COOKIE) {
 	
-	$result=mysql_query($conf);
-	$row=mysql_fetch_row($result);
-	var_dump($row);
+	$user=$_COOKIE['user']?$_COOKIE['user']:$_POST['user'];
+	$pass=$_COOKIE['pass']?$_COOKIE['pass']:$_POST['pass'];
+	$capcha=$_POST['capcha'];
+
+	$db=mysqli_connect('127.0.0.1','root','root','boke',3306);
+	$sql="SELECT * FROM user WHERE user='$user' AND pass='$pass'";
+	$result=mysqli_query($db,$sql);
+		$row=mysqli_fetch_assoc($result);	
+
 	if ($db->connect_error) {
 	die();
 	}
-	
-
-	if ($a) {
-		echo '登录成功';
+	if ($capcha===$_SESSION['cap']) {
+		echo  '都市夫妇';
 	}else{
-		echo '登录失败';
+		echo '好多岁发挥双方';
 	}
+	
+	
+		if ($row) {
+			header("url=/denlu.php");
+
+		}else{
+			echo '登录失败';
+		}
+
+	
+	if ($_POST['c']) {
+	 	setcookie('user',$_POST['user']);
+	 	setcookie('pass',$_POST['pass']);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -51,10 +78,12 @@ if (ispost()) {
 <body>
 	<div class="div">
 		<form action="./dl.php" method="post">
+		
 		<p><input type="text" name="user"></p>
 		<p><input type="password" name="pass"></p>
-		
+		<p><input type="text" name="capcha"></p>
 		<p><input type="submit" name="submit"></p>
+		<i><input name="c" type="checkbox" checked>自动登录</i>
 		<P><img src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'./capcha.php'?>" onclick=this.src="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'./capcha.php'?>"+'/'+Math.random()></P>
 		</form>
 	</div>	

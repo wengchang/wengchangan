@@ -13,7 +13,7 @@ for ($i=0; $i <$num ; $i++) {
 	$captcha.=$text[mt_rand(0,$maxindex)];
 }
 session_start();
-$_SESSION['capcha']=$captcha;
+$_SESSION['cap']=$captcha;
 $text_color=imagecolorallocate($bg, mt_rand(0,255), mt_rand(0,255), mt_rand(0,255));
 $font_w=imagefontwidth(5);
 $font_h=imagefontheight(5);
@@ -33,3 +33,4 @@ for ($i=0; $i <mt_rand(5,15) ; $i++) {
  }
 header('content-type:image/png');
 imagepng($bg);
+echo $_SESSION['cap'];
