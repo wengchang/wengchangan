@@ -19,7 +19,13 @@ class Mysql{
 	private $dbname='';
 	private $character='';
 	private $conn='';
-	private static $mysql;
+	private static $mysql=null;
+	public static function init($conf){
+		if (!self::$mysql instanceof self) {
+			self::$mysql= new self($conf);
+		}
+		return self::$mysql;
+	}
 	private function ___construct($conf){
 		//判断接受的数据是否合法
 		$this->host=isset($conf['host'])?$conf['host']:'127.0.0.1';
@@ -31,17 +37,10 @@ class Mysql{
 		$this->conn=mysqli_connect($this->host,$this->user,$this->pass,$this->dbname) or die('错误代号:'.mysqli_connect_errno().'<br>'.'错误信息:'.mysqli_connect_error());
 		mysqli_set_charset($this->conn,$this->character);
 	}
-	public static function init($conf){
-		if (!isset(self::$mysql)) {
-			return self::$mysql= new self($conf) ;
-			
-		}
-
-		//判断MySQL有没有值
-		return self::$mysql;
+	
 		
 		
-	}
+	
 	public function setPass($pass){
 		$this->pass = $pass;
 	}
