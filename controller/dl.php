@@ -6,11 +6,12 @@ session_start();
 		}
 		if (ispost()) {
 			
-			$user=$_COOKIE['user'];
-			$pass=$_COOKIE['pass'];
+			$user=$_POST['user'];
+			$pass=$_POST['pass'];
 			$capcha=$_POST['capcha'];
 
 			$db=mysqli_connect('127.0.0.1','root','root','boke',3306);
+			$db->set_charset('UTF8');
 			$sql="SELECT * FROM user WHERE user='$user' AND pass='$pass'";
 			$result=mysqli_query($db,$sql);
 				$row=mysqli_fetch_assoc($result);	
@@ -18,29 +19,33 @@ session_start();
 			if ($db->connect_error) {
 			die();
 			}
-			if ($capcha===$_SESSION['cap']) {
-				echo  yyyyyyyy;
-			}else{
-				echo nnnnnn;
-			}
-			
-			
+			if ($capcha===$_SESSION['capc']) {
 				if ($row) {
-					header('refresh:3;url=?a=wellcome');
-
+					echo '登陆成功';
+					header("Location:../model/wellcome.html");
+					if ($_POST['c']) {
+			 			setcookie('user',$_POST['user']);
+			 			setcookie('pass',$_POST['pass']);
+					}
 				}else{
-					header('refresh:3;url=?a=show');
+					
+					echo '登录失败';header("Location:../model/dl.html");
 				}
 
-			
-			if ($_POST['c']) {
-			 	setcookie('user',$_POST['user']);
-			 	setcookie('pass',$_POST['pass']);
+			}else{
+				echo '登录失败';header("Location:../model/dl.html");
 			}
+			
+		}elseif ($_COOKIE['user']&&$_COOKIE['pass']) {
+			echo "登陆成功";
+			header("Location:../model/wellcome.html");
+		}else{
+			header("Location:../model/dl.html");
 		}
-		// var_dump($_COOKIE);
-		var_dump( $_SESSION['capc']);
-		include '../model/dl.html';
+		
+		
+		// var_dump($_SESSION['capc']);检查存在session里面的验证码是不是正确的
+		
 		// include '../model/wellcome.html';
 		
 	
