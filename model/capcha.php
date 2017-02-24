@@ -1,6 +1,6 @@
 <?php 
-$width=mt_rand(200,300);
-$height=mt_rand(40,70);
+$width=280;
+$height=50;
 $num=mt_rand(4,6);
 
 $bg=imagecreatetruecolor($width, $height);
@@ -14,7 +14,6 @@ for ($i=0; $i <$num ; $i++) {
 }
 session_start();
 $_SESSION['capc']=$captcha;
-
 $text_color=imagecolorallocate($bg, mt_rand(0,255), mt_rand(0,255), mt_rand(0,255));
 $font_w=imagefontwidth(5);
 $font_h=imagefontheight(5);
