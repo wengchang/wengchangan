@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>管理中心 - 点滴记忆</title>
+        <link type="text/css" href="views/css/cssreset-min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/select2.min.css" rel="stylesheet">
+        <link type="text/css" type="text/css" href="views/css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/css-main.css" rel="stylesheet">
+        <script type="text/javascript" src="../include/lib/js/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../include/lib/js/jquery/plugin-cookie.js"charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/bootstrap.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/select2.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/common.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.htm" target="_blank" title="在新窗口浏站点">
+                        点滴记忆                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a href="index.htm"><i class="fa fa-home fa-fw"></i>管理首页</a></li>
+                    <li><a href="configure.php.htm"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                    <li><a href="../index.htm"><i class="fa fa-power-off fa-fw"></i>退出</a></li>
+                </ul>
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-avatar">
+                                <div style="text-align: center;">
+                                    <a href="blogger.php.htm">
+                                        <img class="img-circle" src="views/images/avatar.jpg" />
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="write_log.php.htm" id="menu_wt"><i class="fa fa-edit fa-fw"></i> 写文章</a></li>
+                            <li><a href="admin_log.php.htm" id="menu_log"><i class="fa fa-list-alt fa-fw"></i> 文章</a></li>
+                                                        <li><a href="tag.php.htm" id="menu_tag"><i class="fa fa-tags fa-fw"></i> 标签</a></li>
+                            <li><a href="sort.php.htm" id="menu_sort"><i class="fa fa-flag fa-fw"></i> 分类</a></li>
+                                                        <li><a href="comment.php.htm" id="menu_cm"><i class="fa fa-comments fa-fw"></i> 评论
+                                                                        </a></li>
+                                                        <li><a href="page.php.htm" id="menu_page"><i class="fa fa-file-o fa-fw"></i> 页面</a></li>
+                            <li><a href="link.php.htm" id="menu_link"><i class="fa fa-link fa-fw"></i> 友链</a></li>
+                            <li id="menu_category_view" class="">
+                                <a href="#"><i class="fa fa-eye fa-fw"></i> 外观<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_view">
+                                    <li><a href="widgets.php.htm" id="menu_widget"><i class="fa fa-columns fa-fw"></i> 侧边栏</a></li>
+                                    <li><a href="navbar.php.htm" id="menu_navi"><i class="fa fa-bars fa-fw"></i> 导航</a></li>
+                                    <li><a href="template.php.htm" id="menu_tpl"><i class="fa fa-eye fa-fw"></i> 模板</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu_category_sys" class="">
+                                <a href="#"><i class="fa fa-cog fa-fw"></i> 系统<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_sys">
+                                    <li><a href="configure.php.htm" id="menu_setting"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                                    <li><a href="user.php.htm" id="menu_user"><i class="fa fa-user fa-fw"></i> 用户</a></li>
+                                    <li><a href="data.php.htm" id="menu_data"><i class="fa fa-database fa-fw"></i> 数据</a></li>
+                                    <li><a href="plugin.php.htm" id="menu_plug"><i class="fa fa-plug fa-fw"></i> 插件</a></li>
+                                    <li><a href="store.php.htm" id="menu_store"><i class="fa fa-shopping-cart fa-fw"></i> 应用</a></li>
+                                </ul>
+                            </li>
+                                                                                </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+<div class="containertitle"><b>数据库备份</b>
+<span class="alert alert-success">缓存更新成功</span></div>
+<div class=line></div>
+<form  method="post" action="http://127.0.0.1/emlog6/admin/data.php?action=dell_all_bak" name="form_bak" id="form_bak">
+<table class="table table-striped table-bordered table-hover dataTable no-footer">
+  <thead>
+    <tr>
+      <th width="683" colspan="2"><b>备份文件</b></th>
+      <th width="226"><b>备份时间</b></th>
+      <th width="149"><b>文件大小</b></th>
+      <th width="87"></th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr>
+      <td width="22"><input type="checkbox" value="../content/backup/emlog_20151215_7229724938148c59f9.sql" name="bak[]" class="ids" /></td>
+      <td width="661"><a href="../content/backup/emlog_20151215_7229724938148c59f9.sql">emlog_20151215_7229724938148c59f9.sql</a></td>
+      <td>2015-12-15 11:42:03</td>
+      <td>90.33KB</td>
+      <td><a href="javascript: em_confirm('../content/backup/emlog_20151215_7229724938148c59f9.sql'/*tpa=http://127.0.0.1/emlog6/content/backup/emlog_20151215_7229724938148c59f9.sql*/, 'backup', '71cfec4df88c1b1393494d71745f9180');">导入</a></td>
+    </tr>
+        <tr>
+      <td width="22"><input type="checkbox" value="../content/backup/emlog_20151229_6c6f435ae4c1b0424e.sql" name="bak[]" class="ids" /></td>
+      <td width="661"><a href="../content/backup/emlog_20151229_6c6f435ae4c1b0424e.sql">emlog_20151229_6c6f435ae4c1b0424e.sql</a></td>
+      <td>3 分钟前</td>
+      <td>99.57KB</td>
+      <td><a href="javascript: em_confirm('../content/backup/emlog_20151229_6c6f435ae4c1b0424e.sql'/*tpa=http://127.0.0.1/emlog6/content/backup/emlog_20151229_6c6f435ae4c1b0424e.sql*/, 'backup', 'e45ed71540dde90fe51da1ffe48e47f1');">导入</a></td>
+    </tr>
+        </tbody>
+</table>
+<div class="list_footer">
+<a href="javascript:void(0);" id="select_all">全选</a> 选中项：<a href="javascript:bakact('del');" class="care">删除</a></div>
+</form>
+
+<div style="margin:50px 0px 20px 0px;">
+    <a href="javascript:$('#import').hide();$('#cache').hide();displayToggle('backup', 0);" style="margin-right: 16px;">备份数据库+</a> 
+    <a href="javascript:$('#backup').hide();$('#cache').hide();displayToggle('import', 0);" style="margin-right: 16px;">导入本地备份+</a> 
+    <a href="javascript:$('#backup').hide();$('#import').hide();displayToggle('cache', 0);" style="margin-right: 16px;">更新缓存+</a>
+</div>
+
+<form action="http://127.0.0.1/emlog6/admin/data.php?action=bakstart" method="post">
+<div id="backup">
+    <p>可备份的数据库表：<br />
+        <select multiple="multiple" size="12" name="table_box[]">
+                <option value="emlog_attachment" selected="selected">emlog_attachment</option>
+                <option value="emlog_blog" selected="selected">emlog_blog</option>
+                <option value="emlog_comment" selected="selected">emlog_comment</option>
+                <option value="emlog_options" selected="selected">emlog_options</option>
+                <option value="emlog_navi" selected="selected">emlog_navi</option>
+                <option value="emlog_sort" selected="selected">emlog_sort</option>
+                <option value="emlog_link" selected="selected">emlog_link</option>
+                <option value="emlog_tag" selected="selected">emlog_tag</option>
+                <option value="emlog_user" selected="selected">emlog_user</option>
+                </select>
+    </p>
+    <p>将站点内容数据库备份到：
+        <select name="bakplace" id="bakplace">
+            <option value="local" selected="selected">本地（自己电脑）</option>
+            <option value="server">服务器空间</option>
+        </select>
+    </p>
+    <p id="local_bakzip">压缩成zip包：<input type="checkbox" style="vertical-align:middle;" value="y" name="zipbak" id="zipbak"></p>
+    <p>
+        <input name="token" id="token" value="54cde758badb62046df0419e433c6094" type="hidden" />
+        <input type="submit" value="开始备份" class="btn btn-primary" />
+    </p>
+</div>
+</form>
+
+<form action="http://127.0.0.1/emlog6/admin/data.php?action=import" enctype="multipart/form-data" method="post">
+<div id="import">
+    <p class="des">仅可导入相同版本emlog导出的数据库备份文件，且数据库表前缀需保持一致。<br />当前数据库表前缀：emlog_</p>
+    <p>
+        <input name="token" id="token" value="42edc8e8a548a0051396a88ac0b92a82" type="hidden" />
+        <input type="file" name="sqlfile" /> <input type="submit" value="导入" class="submit" />
+    </p>
+</div>
+</form>
+
+<div id="cache">
+    <p class="des">缓存可以加快站点的加载速度。通常系统会自动更新缓存，无需手动。有些特殊情况，比如缓存文件被修改、手动修改过数据库、页面出现异常等才需要手动更新。</p>
+    <p><input type="button" onclick="window.location='data.php-active_mc=1.htm'/*tpa=http://127.0.0.1/emlog6/admin/data.php?action=Cache*/;" value="更新缓存" class="btn btn-primary" /></p>
+</div>
+
+<script type="text/javascript">
+    setTimeout(hideActived,2600);
+    $(document).ready(function(){
+        selectAllToggle();
+        $("#adm_bakdata_list tbody tr:odd").addClass("tralt_b");
+        $("#adm_bakdata_list tbody tr")
+            .mouseover(function(){$(this).addClass("trover")})
+            .mouseout(function(){$(this).removeClass("trover")});
+        $("#bakplace").change(function(){$("#server_bakfname").toggle();$("#local_bakzip").toggle();});
+    });
+    function bakact(act){
+        if (getChecked('ids') == false) {
+            alert('请选择要操作的备份文件');
+            return;
+        }
+        if(act == 'del' && !confirm('你确定要删除所选备份文件吗？')){return;}
+        $("#operate").val(act);
+        $("#form_bak").submit();
+    }
+    $("#menu_category_sys").addClass('active');
+    $("#menu_sys").addClass('in');
+    $("#menu_data").addClass('active');
+</script>
+            <div id="footer"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('select').select2();
+    </script>
+</body>
+
+</html>

@@ -1,14 +1,15 @@
 <?php 
-$title=$_POST['title'];
-$content=$_POST['content'];
+require dirname(__DIR__).'/work/mysql.php';
+if (ispost()) {
+	$title=$_POST['title'];
+	$content=$_POST['content'];
+	if (!$_POST['title']==''&&$_POST['content']) {
+		$sql="INSERT INTO article VALUES(null,'$title','$content',null)";
+		$result=mysqli_query($db,$sql);
+	}
+}
 
-
-var_dump($_POST);
-$db=mysqli_connect('127.0.0.1','root','root','boke',3306);
-$db->set_charset('utf8');
-$sql="INSERT INTO article VALUES(null,'$title','$content',null)";
-$result=mysqli_query($db,$sql);
-
+include dirname(__DIR__).'/admin_log.html';
 
 
 

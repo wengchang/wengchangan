@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>管理中心 - 点滴记忆</title>
+        <link type="text/css" href="views/css/cssreset-min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/select2.min.css" rel="stylesheet">
+        <link type="text/css" type="text/css" href="views/css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/css-main.css" rel="stylesheet">
+        <script type="text/javascript" src="../include/lib/js/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../include/lib/js/jquery/plugin-cookie.js"charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/bootstrap.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/select2.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/common.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.htm" target="_blank" title="在新窗口浏站点">
+                        点滴记忆                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a href="index.htm"><i class="fa fa-home fa-fw"></i>管理首页</a></li>
+                    <li><a href="configure.php.htm"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                    <li><a href="../index.htm"><i class="fa fa-power-off fa-fw"></i>退出</a></li>
+                </ul>
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-avatar">
+                                <div style="text-align: center;">
+                                    <a href="blogger.php.htm">
+                                        <img class="img-circle" src="views/images/avatar.jpg" />
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="write_log.php.htm" id="menu_wt"><i class="fa fa-edit fa-fw"></i> 写文章</a></li>
+                            <li><a href="admin_log.php.htm" id="menu_log"><i class="fa fa-list-alt fa-fw"></i> 文章</a></li>
+                                                        <li><a href="tag.php.htm" id="menu_tag"><i class="fa fa-tags fa-fw"></i> 标签</a></li>
+                            <li><a href="sort.php.htm" id="menu_sort"><i class="fa fa-flag fa-fw"></i> 分类</a></li>
+                                                        <li><a href="comment.php.htm" id="menu_cm"><i class="fa fa-comments fa-fw"></i> 评论
+                                                                        </a></li>
+                                                        <li><a href="page.php.htm" id="menu_page"><i class="fa fa-file-o fa-fw"></i> 页面</a></li>
+                            <li><a href="link.php.htm" id="menu_link"><i class="fa fa-link fa-fw"></i> 友链</a></li>
+                            <li id="menu_category_view" class="">
+                                <a href="#"><i class="fa fa-eye fa-fw"></i> 外观<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_view">
+                                    <li><a href="widgets.php.htm" id="menu_widget"><i class="fa fa-columns fa-fw"></i> 侧边栏</a></li>
+                                    <li><a href="navbar.php.htm" id="menu_navi"><i class="fa fa-bars fa-fw"></i> 导航</a></li>
+                                    <li><a href="template.php.htm" id="menu_tpl"><i class="fa fa-eye fa-fw"></i> 模板</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu_category_sys" class="">
+                                <a href="#"><i class="fa fa-cog fa-fw"></i> 系统<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_sys">
+                                    <li><a href="configure.php.htm" id="menu_setting"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                                    <li><a href="user.php.htm" id="menu_user"><i class="fa fa-user fa-fw"></i> 用户</a></li>
+                                    <li><a href="data.php.htm" id="menu_data"><i class="fa fa-database fa-fw"></i> 数据</a></li>
+                                    <li><a href="plugin.php.htm" id="menu_plug"><i class="fa fa-plug fa-fw"></i> 插件</a></li>
+                                    <li><a href="store.php.htm" id="menu_store"><i class="fa fa-shopping-cart fa-fw"></i> 应用</a></li>
+                                </ul>
+                            </li>
+                                                                                </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+<div class="panel-heading">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="configure.php.htm">基本设置</a></li>
+        <li role="presentation"><a href="seo.php.htm">SEO设置</a></li>
+        <li role="presentation"><a href="blogger.php.htm">个人设置</a></li>
+            </ul>
+</div>
+<div class="panel-body" style="margin-left:30px;">
+    <form action="http://127.0.0.1/emlog6/admin/configure.php?action=mod_config" method="post" name="input" id="input">
+        <div class="form-group">
+            <label>站点标题：</label><input style="width:390px;" class="form-control" value="点滴记忆" name="blogname" />
+        </div>
+        <div class="form-group">
+            <label>站点副标题：</label><textarea name="bloginfo" cols="" rows="3" style="width:386px;" class="form-control">使用emlog搭建的站点</textarea>
+        </div>
+        <div class="form-group">
+            <label>站点地址：</label><input style="width:390px;" class="form-control" value="http://127.0.0.1/emlog6/" name="blogurl" />
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="detect_url" id="detect_url"  />自动检测站点地址 (可能和部分CDN解决方案不兼容)
+                </label>
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <label>每页显示 </label><input style="width:50px;" class="form-control" value="10" name="index_lognum" />篇文章
+        </div>
+        <div class="form-group form-inline">
+            <label>你所在时区：</label>
+            <select name="timezone" style="width:320px;" class="form-control">
+                                    <option value="Etc/GMT" >(UTC)协调世界时</option>
+                                    <option value="Africa/Casablanca" >(UTC)卡萨布兰卡</option>
+                                    <option value="Atlantic/Reykjavik" >(UTC)蒙罗维亚，雷克雅未克</option>
+                                    <option value="Europe/London" >(UTC)都柏林，爱丁堡，里斯本，伦敦</option>
+                                    <option value="Africa/Lagos" >(UTC+01:00)中非西部</option>
+                                    <option value="Europe/Paris" >(UTC+01:00)布鲁塞尔，哥本哈根，马德里，巴黎</option>
+                                    <option value="Africa/Windhoek" >(UTC+01:00)温得和克</option>
+                                    <option value="Europe/Warsaw" >(UTC+01:00)萨拉热窝，斯科普里，华沙，萨格勒布</option>
+                                    <option value="Europe/Budapest" >(UTC+01:00)贝尔格莱德，布拉迪斯拉发，布达佩斯，卢布尔雅那，布拉格</option>
+                                    <option value="Europe/Berlin" >(UTC+01:00)阿姆斯特丹，柏林，伯尔尼，罗马，斯德哥尔摩，维也纳</option>
+                                    <option value="Europe/Istanbul" >(UTC+02:00)伊斯坦布尔</option>
+                                    <option value="Europe/Kaliningrad" >(UTC+02:00)加里宁格勒(RTZ 1)</option>
+                                    <option value="Africa/Johannesburg" >(UTC+02:00)哈拉雷，比勒陀利亚</option>
+                                    <option value="Asia/Damascus" >(UTC+02:00)大马士革</option>
+                                    <option value="Asia/Amman" >(UTC+02:00)安曼</option>
+                                    <option value="Africa/Cairo" >(UTC+02:00)开罗</option>
+                                    <option value="Africa/Tripoli" >(UTC+02:00)的黎波里</option>
+                                    <option value="Asia/Jerusalem" >(UTC+02:00)耶路撒冷</option>
+                                    <option value="Asia/Beirut" >(UTC+02:00)贝鲁特</option>
+                                    <option value="Europe/Kiev" >(UTC+02:00)赫尔辛基，基辅，里加，索非亚，塔林，维尔纽斯</option>
+                                    <option value="Europe/Bucharest" >(UTC+02:00)雅典，布加勒斯特</option>
+                                    <option value="Africa/Nairobi" >(UTC+03:00)内罗毕</option>
+                                    <option value="Asia/Baghdad" >(UTC+03:00)巴格达</option>
+                                    <option value="Europe/Minsk" >(UTC+03:00)明斯克</option>
+                                    <option value="Asia/Riyadh" >(UTC+03:00)科威特，利雅得</option>
+                                    <option value="Europe/Moscow" >(UTC+03:00)莫斯科，圣彼得堡，伏尔加格勒(RTZ 2)</option>
+                                    <option value="Asia/Tehran" >(UTC+03:30)德黑兰</option>
+                                    <option value="Europe/Samara" >(UTC+04:00)伊热夫斯克，萨马拉(RTZ 3)</option>
+                                    <option value="Asia/Yerevan" >(UTC+04:00)埃里温</option>
+                                    <option value="Asia/Bak" >(UTC+04:00)巴库</option>
+                                    <option value="Asia/Tbilisi" >(UTC+04:00)第比利斯</option>
+                                    <option value="Indian/Mauritius" >(UTC+04:00)路易港</option>
+                                    <option value="Asia/Dubai" >(UTC+04:00)阿布扎比，马斯喀特</option>
+                                    <option value="Asia/Kabu" >(UTC+04:30)喀布尔</option>
+                                    <option value="Asia/Karachi" >(UTC+05:00)伊斯兰堡，卡拉奇</option>
+                                    <option value="Asia/Yekaterinburg" >(UTC+05:00)叶卡捷琳堡(RTZ 4)</option>
+                                    <option value="Asia/Tashkent" >(UTC+05:00)阿什哈巴德，塔什干</option>
+                                    <option value="Asia/Colombo" >(UTC+05:30)斯里加亚渥登普拉</option>
+                                    <option value="Asia/Calcutta" >(UTC+05:30)钦奈，加尔各答，孟买，新德里</option>
+                                    <option value="Asia/Katmandu" >(UTC+05:45)加德满都</option>
+                                    <option value="Asia/Novosibirsk" >(UTC+06:00)新西伯利亚(RTZ 5)</option>
+                                    <option value="Asia/Dhaka" >(UTC+06:00)达卡</option>
+                                    <option value="Asia/Almaty" >(UTC+06:00)阿斯塔纳</option>
+                                    <option value="Asia/Rangoon" >(UTC+06:30)仰光</option>
+                                    <option value="Asia/Krasnoyarsk" >(UTC+07:00)克拉斯诺亚尔斯克(RTZ 6)</option>
+                                    <option value="Asia/Bangkok" >(UTC+07:00)曼谷，河内，雅加达</option>
+                                    <option value="Asia/Ulaanbaatar" >(UTC+08:00)乌兰巴托</option>
+                                    <option value="Asia/Irkutsk" >(UTC+08:00)伊尔库茨克(RTZ 7)</option>
+                                    <option value="Asia/Shanghai" selected="selected">(UTC+08:00)北京，重庆，香港特别行政区，乌鲁木齐</option>
+                                    <option value="Asia/Taipei" >(UTC+08:00)台北</option>
+                                    <option value="Asia/Singapore" >(UTC+08:00)吉隆坡，新加坡</option>
+                                    <option value="Australia/Perth" >(UTC+08:00)珀斯</option>
+                                    <option value="Asia/Tokyo" >(UTC+09:00)大阪，札幌，东京</option>
+                                    <option value="Asia/Yakutsk" >(UTC+09:00)雅库茨克(RTZ 8)</option>
+                                    <option value="Asia/Seoul" >(UTC+09:00)首尔</option>
+                                    <option value="Australia/Darwin" >(UTC+09:30)达尔文</option>
+                                    <option value="Australia/Adelaide" >(UTC+09:30)阿德莱德</option>
+                                    <option value="Pacific/Port_Moresby" >(UTC+10:00)关岛，莫尔兹比港</option>
+                                    <option value="Australia/Sydney" >(UTC+10:00)堪培拉，墨尔本，悉尼</option>
+                                    <option value="Australia/Brisbane" >(UTC+10:00)布里斯班</option>
+                                    <option value="Asia/Vladivostok" >(UTC+10:00)符拉迪沃斯托克，马加丹(RTZ 9)</option>
+                                    <option value="Australia/Hobart" >(UTC+10:00)霍巴特</option>
+                                    <option value="Asia/Magadan" >(UTC+10:00)马加丹</option>
+                                    <option value="Asia/Srednekolymsk" >(UTC+11:00)乔库尔达赫(RTZ 10)</option>
+                                    <option value="Pacific/Guadalcanal" >(UTC+11:00)所罗门群岛，新喀里多尼亚</option>
+                                    <option value="Etc/GMT-12" >(UTC+12:00)协调世界时+12</option>
+                                    <option value="Pacific/Auckland" >(UTC+12:00)奥克兰，惠灵顿</option>
+                                    <option value="Pacific/Fiji" >(UTC+12:00)斐济</option>
+                                    <option value="Asia/Kamchatka" >(UTC+12:00)阿纳德尔，彼得罗巴甫洛夫斯克-堪察加(RTZ 11)</option>
+                                    <option value="Pacific/Tongatapu" >(UTC+13:00)努库阿洛法</option>
+                                    <option value="Pacific/Apia" >(UTC+13:00)萨摩亚群岛</option>
+                                    <option value="Pacific/Kiritimati" >(UTC+14:00)圣诞岛</option>
+                                    <option value="Atlantic/Azores" >(UTC-01:00)亚速尔群岛</option>
+                                    <option value="Atlantic/Cape_Verde" >(UTC-01:00)佛得角群岛</option>
+                                    <option value="Etc/GMT+2" >(UTC-02:00)协调世界时-02</option>
+                                    <option value="America/Cayenne" >(UTC-03:00)卡宴，福塔雷萨</option>
+                                    <option value="America/Sao_Paulo" >(UTC-03:00)巴西利亚</option>
+                                    <option value="America/Buenos_Aires" >(UTC-03:00)布宜诺斯艾利斯</option>
+                                    <option value="America/Godthab" >(UTC-03:00)格陵兰</option>
+                                    <option value="America/Bahia" >(UTC-03:00)萨尔瓦多</option>
+                                    <option value="America/Montevideo" >(UTC-03:00)蒙得维的亚</option>
+                                    <option value="America/St_Johns" >(UTC-03:30)纽芬兰</option>
+                                    <option value="America/La_Paz" >(UTC-04:00)乔治敦，拉巴斯，马瑙斯，圣胡安</option>
+                                    <option value="America/Asuncion" >(UTC-04:00)亚松森</option>
+                                    <option value="America/Halifax" >(UTC-04:00)大西洋时间(加拿大)</option>
+                                    <option value="America/Cuiaba" >(UTC-04:00)库亚巴</option>
+                                    <option value="America/Caracas" >(UTC-04:30)加拉加斯</option>
+                                    <option value="America/New_York" >(UTC-05:00)东部时间(美国和加拿大)</option>
+                                    <option value="America/Indianapolis" >(UTC-05:00)印地安那州(东部)</option>
+                                    <option value="America/Bogota" >(UTC-05:00)波哥大，利马，基多，里奥布朗库</option>
+                                    <option value="America/Guatemala" >(UTC-06:00)中美洲</option>
+                                    <option value="America/Chicago" >(UTC-06:00)中部时间(美国和加拿大)</option>
+                                    <option value="America/Mexico_City" >(UTC-06:00)瓜达拉哈拉，墨西哥城，蒙特雷</option>
+                                    <option value="America/Regina" >(UTC-06:00)萨斯喀彻温</option>
+                                    <option value="America/Phoenix" >(UTC-07:00)亚利桑那</option>
+                                    <option value="America/Chihuahua" >(UTC-07:00)奇瓦瓦，拉巴斯，马萨特兰</option>
+                                    <option value="America/Denver" >(UTC-07:00)山地时间(美国和加拿大)</option>
+                                    <option value="America/Santa_Isabel" >(UTC-08:00)下加利福尼亚州</option>
+                                    <option value="America/Los_Angeles" >(UTC-08:00)太平洋时间(美国和加拿大)</option>
+                                    <option value="America/Anchorage" >(UTC-09:00)阿拉斯加</option>
+                                    <option value="Pacific/Honolulu" >(UTC-10:00)夏威夷</option>
+                                    <option value="Etc/GMT+11" >(UTC-11:00)协调世界时-11</option>
+                                    <option value="Etc/GMT+12" >(UTC-12:00)国际日期变更线西</option>
+                            </select>
+            (本地时间：2015-12-29 15:43:39)
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="login_code" id="login_code"  />登录验证码
+                </label>
+            </div>
+            <div class="checkbox form-inline">
+                <label><input type="checkbox" value="y" name="isexcerpt" id="isexcerpt"  />自动摘要</label>，
+                截取文章的前<input type="text" name="excerpt_subnum" value="300" class="form-control" style="width:60px;" />个字作为摘要
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            RSS输出 <input maxlength="5" style="width:50px;" value="10" class="form-control" name="rss_output_num" /> 篇文章（0为关闭），且输出
+            <select name="rss_output_fulltext" class="form-control">
+                <option value="y" selected="selected">全文</option>
+                <option value="n" >摘要</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="checkbox form-inline">
+                <label><input type="checkbox" value="y" name="iscomment" id="iscomment" checked="checked" />开启评论</label>，发表评论间隔<input maxlength="5" style="width:50px;" class="form-control" value="60" name=comment_interval />秒
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="ischkcomment" id="ischkcomment" checked="checked" />评论审核
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="comment_code" id="comment_code"  />评论验证码
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="isgravatar" id="isgravatar" checked="checked" />评论人头像
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="y" name="comment_needchinese" id="comment_needchinese" checked="checked" />评论内容必须包含中文
+                </label>
+            </div>
+            <div class="checkbox form-inline">
+                <label><input type="checkbox" value="y" name="comment_paging" id="comment_paging" checked="checked" />评论分页，</label>
+                每页显示<input maxlength="5" style="width:50px;" class="form-control" value="10" name="comment_pnum" />条评论，
+                <select name="comment_order" class="form-control"><option value="newer" selected="selected">较新的</option><option value="older" >较旧的</option></select>排在前面
+            </div>
+        </div>
+        <div class="form-group form-inline">
+            <input maxlength="10" style="width:80px;" class="form-control" value="20480" name="att_maxsize" /> KB，附件上传最大限制。
+        </div>
+        <div class="form-group form-inline">
+            <input maxlength="200" style="width:320px;" class="form-control" value="rar,zip,gif,jpg,jpeg,png,txt,pdf,docx,doc,xls,xlsx" name="att_type" /> 允许上传的附件类型（多个用半角逗号分隔）
+        </div>
+        <div class="form-group form-inline">
+            <input type="checkbox" value="y" name="isthumbnail" id="isthumbnail" checked="checked" />上传图片生成缩略图，最大尺寸：<input maxlength="5" style="width:60px;" class="form-control" value="420" name="att_imgmaxw" /> x <input maxlength="5" style="width:60px;" class="form-control" value="460" name="att_imgmaxh" />（单位：像素）
+        </div>
+        <div class="form-group">
+            ICP备案号：
+            <input maxlength="200" style="width:390px;" class="form-control" value="" name="icp" />
+        </div>
+        <div class="form-group">
+            <label>首页底部信息(支持html，可用于添加流量统计代码)：</label>
+            <textarea name="footer_info" cols="" rows="6" class="form-control" style="width:386px;"></textarea>
+        </div>
+        <input name="token" id="token" value="90dc00e0ff6128babc5eff92ae6bcf06" type="hidden" />
+        <input type="submit" value="保存设置" class="btn btn-primary" />
+    </form>
+</div>
+<script type="text/javascript">
+    setTimeout(hideActived, 2600);
+    $("#menu_category_sys").addClass('active');
+    $("#menu_sys").addClass('in');
+    $("#menu_setting").addClass('active');
+</script>
+            <div id="footer"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('select').select2();
+    </script>
+</body>
+
+</html>

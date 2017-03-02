@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>upload</title>
+	<link type="text/css" href="views/css/css-att.css" rel="stylesheet">
+	<script type="text/javascript" src="../include/lib/js/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="views/js/common.js"></script>
+	<script type="text/javascript">
+		function showupload(multi){
+			var as_logid = parent.document.getElementById('as_logid').value
+			window.location.href="attachment.php-action=selectFile&logid=.htm"/*tpa=http://127.0.0.1/emlog6/admin/attachment.php?action=selectFile&logid=*/+as_logid+"&multi="+multi;
+		}
+		function showattlib(){
+			var as_logid = parent.document.getElementById('as_logid').value
+			window.location.href="attachment.php-action=attlib&logid=.htm"/*tpa=http://127.0.0.1/emlog6/admin/attachment.php?action=attlib&logid=*/+as_logid;
+		}
+	</script>
+</head>
+<body>
+	<div id="media-upload-header">
+		<span><a href="javascript:showupload(0);">上传附件</a></span>
+		<span><a href="javascript:showupload(1);">批量上传</a></span>
+		<span id="curtab"><a href="javascript:showattlib();">附件库（0）</a></span>
+	</div>
+	<div id="media-upload-body">
+					<p id="attmsg">该文章没有附件</p>
+			</div>
+</body>
+</html>

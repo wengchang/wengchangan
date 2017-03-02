@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>管理中心 - 点滴记忆</title>
+        <link type="text/css" href="views/css/cssreset-min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/select2.min.css" rel="stylesheet">
+        <link type="text/css" type="text/css" href="views/css/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link type="text/css" href="views/css/css-main.css" rel="stylesheet">
+        <script type="text/javascript" src="../include/lib/js/jquery/jquery-2.1.4.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="../include/lib/js/jquery/plugin-cookie.js"charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/bootstrap.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/select2.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/js/common.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.htm" target="_blank" title="在新窗口浏站点">
+                        点滴记忆                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a href="index.htm"><i class="fa fa-home fa-fw"></i>管理首页</a></li>
+                    <li><a href="configure.php.htm"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                    <li><a href="../index.htm"><i class="fa fa-power-off fa-fw"></i>退出</a></li>
+                </ul>
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-avatar">
+                                <div style="text-align: center;">
+                                    <a href="blogger.php.htm">
+                                        <img class="img-circle" src="views/images/avatar.jpg" />
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="write_log.php.htm" id="menu_wt"><i class="fa fa-edit fa-fw"></i> 写文章</a></li>
+                            <li><a href="admin_log.php.htm" id="menu_log"><i class="fa fa-list-alt fa-fw"></i> 文章</a></li>
+                                                        <li><a href="tag.php.htm" id="menu_tag"><i class="fa fa-tags fa-fw"></i> 标签</a></li>
+                            <li><a href="sort.php.htm" id="menu_sort"><i class="fa fa-flag fa-fw"></i> 分类</a></li>
+                                                        <li><a href="comment.php.htm" id="menu_cm"><i class="fa fa-comments fa-fw"></i> 评论
+                                                                        </a></li>
+                                                        <li><a href="page.php.htm" id="menu_page"><i class="fa fa-file-o fa-fw"></i> 页面</a></li>
+                            <li><a href="link.php.htm" id="menu_link"><i class="fa fa-link fa-fw"></i> 友链</a></li>
+                            <li id="menu_category_view" class="">
+                                <a href="#"><i class="fa fa-eye fa-fw"></i> 外观<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_view">
+                                    <li><a href="widgets.php.htm" id="menu_widget"><i class="fa fa-columns fa-fw"></i> 侧边栏</a></li>
+                                    <li><a href="navbar.php.htm" id="menu_navi"><i class="fa fa-bars fa-fw"></i> 导航</a></li>
+                                    <li><a href="template.php.htm" id="menu_tpl"><i class="fa fa-eye fa-fw"></i> 模板</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu_category_sys" class="">
+                                <a href="#"><i class="fa fa-cog fa-fw"></i> 系统<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse" id="menu_sys">
+                                    <li><a href="configure.php.htm" id="menu_setting"><i class="fa fa-wrench fa-fw"></i> 设置</a></li>
+                                    <li><a href="user.php.htm" id="menu_user"><i class="fa fa-user fa-fw"></i> 用户</a></li>
+                                    <li><a href="data.php.htm" id="menu_data"><i class="fa fa-database fa-fw"></i> 数据</a></li>
+                                    <li><a href="plugin.php.htm" id="menu_plug"><i class="fa fa-plug fa-fw"></i> 插件</a></li>
+                                    <li><a href="store.php.htm" id="menu_store"><i class="fa fa-shopping-cart fa-fw"></i> 应用</a></li>
+                                </ul>
+                            </li>
+                                                                                </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper">
+<script type="text/javascript">setTimeout(hideActived,2600);</script>
+<div class="panel-heading">
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation"><a href="configure.php.htm">基本设置</a></li>
+    <li role="presentation" class="active"><a href="seo.php.htm">SEO设置</a></li>
+    <li role="presentation"><a href="blogger.php.htm">个人设置</a></li>
+        </ul>
+</div>
+<div class="panel-body" style="margin-left:30px;">
+<form action="http://127.0.0.1/emlog6/admin/seo.php?action=update" method="post">
+<h4>文章链接设置</h4>
+<div class="alert alert-info" style="width: 100%">
+    你可以在这里修改文章链接的形式，如果修改后文章无法访问，那可能是你的服务器空间不支持URL重写，请修改回默认形式、关闭文章连接别名。
+    <br />启用链接别名后可以自定义文章和页面的链接地址。
+</div>
+<div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="permalink" value="0" checked="checked">默认形式：<span class="permalink_url">http://127.0.0.1/emlog6/?post=1</span>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="permalink" value="1" >文件形式：<span class="permalink_url">http://127.0.0.1/emlog6/post-1.html</span>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="permalink" value="2" >目录形式：<span class="permalink_url">http://127.0.0.1/emlog6/post/1</span>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="permalink" value="3" >分类形式：<span class="permalink_url">http://127.0.0.1/emlog6/category/1.html</span>
+                </label>
+            </div>
+</div>
+<div class="form-group">
+                <div class="checkbox">
+                <label>
+                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias" id="isalias"  />启用文章链接别名
+                </label>
+            </div>
+                <div class="checkbox">
+                <label>
+                    <input type="checkbox" style="vertical-align:middle;" value="y" name="isalias_html" id="isalias_html"  />启用文章链接别名html后缀
+                </label>
+            </div>
+</div>
+
+<h4>meta信息设置</h4>
+<div class="form-group">
+    <li>
+        <label>站点浏览器标题(title)</label>
+        <input maxlength="200" style="width:300px;" class="form-control" value="" name="site_title" />
+    </li>
+    <li>
+        <label>站点关键字(keywords)</label>
+        <input maxlength="200" style="width:300px;" class="form-control" value="emlog" name="site_key" />
+    </li>
+    <li>
+        <label>站点浏览器描述(description)</label>
+        <textarea name="site_description" class="form-control" cols="" rows="4" style="width:300px;"></textarea>
+    </li>
+    <li>
+        <label>文章浏览器标题方案：</label>
+        <select name="log_title_style" class="form-control" style="width: 120px;">
+        <option value="0" selected="selected">文章标题</option>
+        <option value="1" >文章标题 - 站点标题</option>
+        <option value="2" >文章标题 - 站点浏览器标题</option>
+        </select>
+    </li>
+    <li style="margin-top:10px;">
+        <input name="token" id="token" value="80103bfc30ace704519c002416dffe80" type="hidden" />
+        <input type="submit" value="保存设置" class="btn btn-primary" />
+    </li>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+    setTimeout(hideActived, 2600);
+    $("#menu_category_sys").addClass('active');
+    $("#menu_sys").addClass('in');
+    $("#menu_setting").addClass('active');
+</script>            <div id="footer"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('select').select2();
+    </script>
+</body>
+
+</html>

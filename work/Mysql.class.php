@@ -26,12 +26,12 @@ class Mysql{
 		}
 		return self::$mysql;
 	}
-	private function ___construct($conf){
+	public function ___construct($conf){
 		//判断接受的数据是否合法
 		$this->host=isset($conf['host'])?$conf['host']:'127.0.0.1';
 		$this->user=isset($conf['user'])?$conf['user']:'root';
 		$this->pass=isset($conf['pass'])?$conf['pass']:'root';
-		$this->dbname=isset($conf['dbname'])?$conf['dbname']:'test';
+		$this->dbname=isset($conf['dbname'])?$conf['dbname']:'boke';
 		$this->character=isset($conf['character'])?$conf['character']:'UTF8';
 		//连接数据库
 		$this->conn=mysqli_connect($this->host,$this->user,$this->pass,$this->dbname) or die('错误代号:'.mysqli_connect_errno().'<br>'.'错误信息:'.mysqli_connect_error());
